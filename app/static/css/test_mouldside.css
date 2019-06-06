@@ -1,0 +1,43 @@
+.test-buttons-container {
+    height: 52px;
+    width: 315px;
+    position: relative;
+}
+
+.test-button-left {
+    position: absolute;
+    left: 0px;
+}
+
+.test-button-right {
+    position: absolute;
+    right: 0px;
+}
+
+.test-button {
+    background: none;
+    border: none;
+}
+
+.test-button img {
+    height: 52px;
+}
+
+.test-button-active {
+    border-radius: 50%;
+    background-color: var(--blue);
+    height: 175px;
+    width: 175px;
+    position: absolute;
+    bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+.test-button-active img {
+    height: 75px;
+}

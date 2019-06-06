@@ -1,0 +1,41 @@
+{% extends "base-empty.html" %}
+{% block full_title %}Mold Sensor Diagnostics - MSD{% endblock full_title %}
+{% block custom_css %}
+    <link rel="stylesheet" href="/static/css/start.css">
+{% endblock %}
+
+{% block content %}
+    <div class="row pb-4">
+        <div class="col text-right pt-2">
+            <img src="/static/images/HDmold_logo.png" height="130">
+        </div>
+        <div class="col">
+            <p id="productTitle" class="Header-1">MOLD<br/>SENSOR<br/>DIAGNOSTICS</p>
+        </div>
+    </div>
+    <div class="row justify-content-center text-center vdivide">
+        <div class="col-lg-4 pt-5">
+            <img src="/static/images/Test.svg" class="p-5" height="280">
+            <div class="py-5">
+                <a href="/new-test" class="btn btn-outline-primary btn-big">New test</a>
+            </div>
+        </div>
+        <div class="col-lg-4 pt-5">
+            <img src="/static/images/TestReport.svg" class="p-5" height="280">
+            <div class="py-5">
+                <a href="/reports" class="btn btn-outline-primary btn-big">Reports</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block footer_content %}
+    <p></p>
+    <a role="button" class="text-white px-3" href="/settings">
+        <img src="/static/images/wrench.svg" height="41">
+    </a>
+{% endblock footer_content %}
+
+{% block custom_scripts %}
+    <script src="/static/scripts/start.js"></script>
+{% endblock %}

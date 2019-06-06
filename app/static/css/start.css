@@ -1,0 +1,17 @@
+/* divider between columns */
+.vdivide [class*='col-']:not(:last-child):after {
+    background: var(--text-dark);
+    width: 3px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    min-height: 70px;
+}
+
+#productTitle {
+    letter-spacing: 2.1px;
+    color: var(--text-dark);
+}

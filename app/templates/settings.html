@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% block title %}Settings{% endblock title %}
+
+{% block breadcrump %}
+    <span class="Breadcrump">Settings</span>
+{% endblock breadcrump %}
+
+{% block content %}
+    <form method="post" action="">
+        <div class="row">
+            <div class="col-md-6 px-5">
+                {# general settings #}
+                <div class="row">
+                    <div class="col mb-4">
+                        <h3 class="Header-3">GENERAL SETTINGS</h3>
+                    </div>
+                </div>
+                {# mold layout #}
+                <div class="row">
+                    <div class="col">
+                        <label for="moldLayout" class="input-labels">Mold layout</label>
+                        <input readonly type="text" class="form-control" id="moldLayout" value="{{ mold_layout }}"
+                               name="mold_layout">
+                    </div>
+                    <div class="col">
+                        <p>
+                            Select the wanted type of the mold
+                            <br>
+                            Thickness: 250 mm
+                            <br>
+                            Broadface: 3 x 9 TC
+                            <br>
+                            Narrowface: 3 x 2 TC
+                        </p>
+                    </div>
+                </div>
+                {# reports #}
+                <div class="row mt-5">
+                    <div class="col mb-4">
+                        <h3 class="Header-3">REPORTS</h3>
+                    </div>
+                </div>
+                {# temperature records length #}
+                <div class="row mb-5">
+                    <div class="col">
+                        <label for="temperatureLength" class="input-labels">Temperature record length</label>
+                        <div class="input-group mb-3">
+                            <input readonly type="number" class="form-control" aria-describedby="temperatureLengthAddon"
+                                   id="temperatureLength"
+                                   value="120" name="temperature_length">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="temperatureLengthAddon">sec</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p>The length of the recording of each thermocouple which is stored in the report.</p>
+                    </div>
+                </div>
+                {# tester name #}
+                <div class="row">
+                    <div class="col">
+                        <label for="testerName" class="input-labels">Tester name</label>
+                        <input type="text" class="form-control" id="testerName" value="{{ tester_name }}"
+                               name="tester_name">
+                    </div>
+                    <div class="col">
+                        <p>
+                            Tester name "{{ tester_name }}" will be represented in the reports.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 px-5">
+                {# testing #}
+                <div class="row">
+                    <div class="col mb-4">
+                        <h3 class="Header-3">TESTING</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="detectionTimeInput" class="input-labels">Detection time</label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" aria-describedby="detectionTimeAddon"
+                                       id="detectionTimeInput"
+                                       value="{{ detection_time }}" name="detection_time">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="detectionTimeAddon">sec</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="detectionDegreesInput" class="input-labels">Detection degrees</label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" aria-describedby="detectionDegreesAddon"
+                                       id="detectionDegreesInput" value="{{ detection_degrees }}"
+                                       name="detection_degrees">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="detectionDegreesAddon">°C</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col pt-4">
+                        <p>
+                            If the thermocouple temperature has changed during {{ detection_time }} seconds
+                            to {{ detection_degrees }} degrees in automatic testing mode, then it is marked as being
+                            tested at the moment.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="testTimeInput" class="input-labels">Test time</label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" aria-describedby="testTimeAddon"
+                                       id="testTimeInput"
+                                       value="{{ test_time }}" name="test_time">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="testTimeAddon">sec</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="testDegreesInput" class="input-labels">Test degrees</label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" aria-describedby="testDegreesAddon"
+                                       id="testDegreesInput"
+                                       value="{{ test_degrees }}" name="test_degrees">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="testDegreesAddon">°C</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col pt-4">
+                        <p>
+                            If the temperature of the thermocouple under test has changed over {{ test_time }} seconds
+                            by more than {{ test_degrees }} degrees, then the test is marked as successfully completed.
+                            If during this time the temperature of the thermocouple under test has not reached the
+                            threshold value, the test is marked as failed.
+                        </p>
+                    </div>
+                </div>
+                {# mold side view #}
+                <div class="row">
+                    <div class="col mb-4">
+                        <h3 class="Header-3 text-uppercase">mold side view</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="minGraphTempInput" class="input-labels">Minimum graph temperature</label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" aria-describedby="minGraphTempAddon"
+                                       id="minGraphTempInput"
+                                       value="{{ min_graph_temperature }}" name="min_graph_temperature">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="minGraphTempAddon">°C</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="maxGraphTempInput" class="input-labels">Maximum graph temperature</label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" aria-describedby="maxGraphTempAddon"
+                                       id="maxGraphTempInput"
+                                       value="{{ max_graph_temperature }}" name="max_graph_temperature">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="maxGraphTempAddon">°C</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col pt-4">
+                        <p>
+                            The temperature values shown on the heatmap and temperature history graph will be
+                            between {{ min_graph_temperature }} and {{ max_graph_temperature }} °C.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center pt-5">
+            <button type="submit" class="btn btn-primary">Apply changes</button>
+        </div>
+    </form>
+{% endblock content %}
+
+{% block footer_content %}
+    <a href="/"><img src="static/images/arrow-back.svg" height="41"/></a>
+{% endblock footer_content %}

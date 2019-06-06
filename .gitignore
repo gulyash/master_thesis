@@ -1,0 +1,4 @@
+**/pyCommonlySharedCode
+**/commonConfig.ini
+.idea/
+**/__pycache__

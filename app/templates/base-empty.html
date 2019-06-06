@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% include 'base-head.html' %}
+    <title>{% block full_title %}{% endblock full_title %}</title>
+    {% block custom_css %}{% endblock custom_css %}
+</head>
+<body class="bg-light">
+<!-- HEADER -->
+<nav class="navbar navbar-expand-sm navbar-dark main-nav dark-band">
+    <div class="col-lg-4 px-0">
+        <a class="navbar-brand Header-1 header-title" href="/">
+            <img src="/static/images/smsgroup_icon.svg" width="50" height="50" class="d-inline-block align-top" alt="">
+            {% block header_title %}{% endblock header_title %}
+        </a>
+    </div>
+    <div class="col-lg-4 text-center">
+        {% block breadcrump %}{% endblock breadcrump %}
+    </div>
+</nav>
+
+<!-- Content -->
+<div class="container-fluid py-5 msd-content-container">
+    {% block content %}
+    {% endblock content %}
+</div>
+
+<!-- Footer -->
+<nav class="navbar justify-content-between fixed-bottom dark-band">
+    {% block footer_content %}
+    {% endblock footer_content %}
+</nav>
+
+<!-- Scripts -->
+{% include "base-scripts.html" %}
+<!-- Custom Script -->
+{% block custom_scripts %}{% endblock custom_scripts %}
+</body>
+</html>

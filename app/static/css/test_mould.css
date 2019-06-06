@@ -1,0 +1,32 @@
+#MoldImg {
+    height: 62vh;
+    width: auto;
+    max-width: 75vw;
+}
+
+.btn-test-mouldside {
+    position: absolute;
+}
+
+div #mold-container {
+    margin: 41px 88px;
+}
+
+#fixed.btn-test-mouldside {
+    top: 0px;
+}
+
+#loose.btn-test-mouldside {
+    bottom: 0px;
+    right: 0px;
+}
+
+#left.btn-test-mouldside {
+    top: -41px;
+    right: -88px;
+}
+
+#right.btn-test-mouldside {
+    bottom: -41px;
+    left: -88px;
+}

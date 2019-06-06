@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}New Test{% endblock title %}
+{% block custom_css %}
+    <link rel="stylesheet" href="/static/css/test_mould.css">
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-2 px-5">
+            <label for="moldNo" class="input-labels">Mold No.</label>
+            <input readonly type="text" class="form-control" id="moldNo" value="{{ mold_no }}"
+                   name="mold_layout" width="40">
+        </div>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="row align-items-center">
+                <div>
+                    <div class="position-relative" id="mold-container">
+                        <img src="static/images/Mold.svg" id="MoldImg">
+                        <button type="submit" class="btn btn-outline-primary btn-test-mouldside btn-big" id="loose">
+                            Loose
+                        </button>
+                        <button type="submit" class="btn btn-outline-primary btn-test-mouldside btn-big" id="left">
+                            Left
+                        </button>
+                        <button type="submit" class="btn btn-outline-primary btn-test-mouldside btn-big" id="right">
+                            Right
+                        </button>
+                        <button type="submit" class="btn btn-outline-primary btn-test-mouldside btn-big" id="fixed">
+                            Fixed
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block footer_content %}
+    <a href="/"><img src="/static/images/arrow-back.svg" height="41"/></a>
+{% endblock footer_content %}
+
+{% block custom_scripts %}
+    <script src="/static/scripts/test_mould.js"></script>
+{% endblock %}

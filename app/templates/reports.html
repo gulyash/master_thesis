@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Reports{% endblock title %}
+{% block breadcrump %}
+<span class="Breadcrump">Reports</span>
+{% endblock breadcrump %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <h3 class="Header-3">FILTER</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <h3 class="Header-3">ARCHIVE</h3>
+    </div>
+    <div class="col text-right">
+        <a href="/report" class="btn btn-link">
+            Test Report<img src="static/images/protocol.svg" height="33" class="ml-2"/>
+        </a>
+        <a class="btn btn-link">
+            Details<img src="static/images/eye.svg" height="33" class="ml-2"/>
+        </a>
+    </div>
+</div>
+{% endblock content %}
+
+{% block footer_content %}
+<a href="/"><img src="static/images/arrow-back.svg" height="41"/></a>
+{% endblock footer_content %}

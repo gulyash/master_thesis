@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Test: {{ mold_side }}{% endblock title %}
+{% block custom_css %}
+    <link rel="stylesheet" href="/static/css/test_mouldside.css">
+{% endblock %}
+
+{% block content %}
+    {% include 'autotest-confirmation-modal.html' %}
+    <div class="container text-center">
+        <h3 id="graph-title" class="Header-2 text-uppercase">{{ mold_side }} Side</h3>
+        <p id="ordering"></p>
+        <div id="heatmap"></div>
+        <span class="Header-2">Sensor </span>
+        <span id="selected-tc" class="Header-2">{{ selected_tc }}</span>
+        <div id="tc-graph"></div>
+    </div>
+{% endblock content %}
+
+{% block footer_content %}
+    <a href="/test-mould"><img src="/static/images/arrow-back.svg" height="41"/></a>
+    <div class="justify-content-center test-buttons-container">
+        <button type="button" class="test-button test-button-left test-direction-button" id="btn-test"><img
+                src="/static/images/hand-paper.svg" class="" id="manual"></button>
+        <button type="button" class="test-button test-button-active test-direction-button" id="horz"><img
+                src="/static/images/GuidedTestHorz.svg" class="" id="horz"></button>
+        <button type="button" class="test-button test-button-right test-direction-button" id="vert"><img
+                src="/static/images/GuidedTestVert.svg" class="" id="vert"></button>
+    </div>
+    <a href="/test-mould/side?mold_side={% if mold_side == 'Left' %}Loose{% elif mold_side == 'Loose' %}Right{% elif mold_side == 'Right' %}Fixed{% else %}Left{% endif %}"><img
+            src="/static/images/arrow-forward.svg" height="41"/></a>
+{% endblock footer_content %}
+
+{% block custom_scripts %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        const maxTemp = {{ max_temperature }};
+        const minTemp = {{ min_temperature }}
+        const heatMapInfo = {{ heatmap_info | safe}};
+    </script>
+    <script src="/static/scripts/test_mouldside.js"></script>
+{% endblock %}

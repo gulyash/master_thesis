@@ -1,0 +1,15 @@
+{% extends "base-empty.html" %}
+
+{% block full_title %}{% block title %}{% endblock %} - MSD{% endblock full_title %}
+{% block header_title %}MSD{% endblock header_title %}
+
+{% block breadcrump %}
+    {% for item in breadcrumb %}
+         <span class="Breadcrump">{{ item }}</span>
+        {% if not loop.last %}
+            <span class="Breadcrump">
+                <img src="/static/images/arrow-forward.svg" height="20" class="mb-1 mx-2">
+            </span>
+        {% endif %}
+    {% endfor %}
+{% endblock breadcrump %}
