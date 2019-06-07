@@ -2,3 +2,4 @@
 **/commonConfig.ini
 .idea/
 **/__pycache__
+*.pdf
