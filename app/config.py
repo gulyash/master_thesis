@@ -12,7 +12,7 @@ class MSDConfig:
                  detection_degrees=1,
                  test_time=timedelta(seconds=10),
                  test_degrees=4,
-                 tester_name="unknown",
+                 tester_name="Mr. Tester",
                  min_graph_temperature=24,
                  max_graph_temperature=38) -> None:
         super().__init__()

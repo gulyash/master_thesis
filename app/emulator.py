@@ -60,7 +60,7 @@ class Emulator:
         }
 
         self.heatings = {}
-        self.heating_emulation = heating_modes['manual']
+        self.heating_emulation = heating_modes['no_heating']
         self.slave_statuses = slave_status_modes['ok']
 
     def _get_successful_process_dummy(self):
